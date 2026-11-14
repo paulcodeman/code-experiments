@@ -192,3 +192,42 @@ git fsck --full
 ```
 
 В каждой паре должны совпасть хеши дерева; проверка ancestry завершается с кодом 0.
+
+## Второй проход по самостоятельным проектам
+
+Дата: 14 ноября 2026 года. Повторный просмотр содержимого и связей показал, что эти
+небольшие архивные прототипы целесообразно хранить в сборнике. Они не объявляются
+современными работающими продуктами. У источников не обнаружены Pages, issues/PR,
+релизы, wiki, deployments, окружения, артефакты Actions или Discussions, требующие сохранения.
+
+| Источник | Каталог | Ветка | Исходный коммит | Файлов | Коммитов |
+| --- | --- | --- | --- | ---: | ---: |
+| [theme](https://github.com/paulcodeman/theme) | [theme](https://github.com/paulcodeman/code-experiments/tree/main/theme/) | `master` | `f62dac373c8d17efe0b07b04158c2e82d8fa178f` | 14 | 2 |
+| [theme-browser-kolibrios](https://github.com/paulcodeman/theme-browser-kolibrios) | [theme-browser-kolibrios](https://github.com/paulcodeman/code-experiments/tree/main/theme-browser-kolibrios/) | `main` | `4bfd23409b23adc3efb5e13b528df05b4a4f8184` | 59 | 2 |
+| [zpython](https://github.com/paulcodeman/zpython) | [zpython](https://github.com/paulcodeman/code-experiments/tree/main/zpython/) | `main` | `55e8ab8ad76dfc0c4cd26bae1cc82e7c26def967` | 25 | 3 |
+
+Все ветки и теги проверены: у каждого источника одна указанная ветка, тегов нет.
+Вершины сохранены тегами `source/<каталог>/<ветка>`. Импорт выполнен через
+`git subtree add` без squash и переписывания исходных коммитов. Сохранены их SHA,
+авторы, коммитеры, даты, сообщения, родители, деревья, все файлы и уведомления.
+Код и бинарники не запускались; сетевые интеграции не вызывались.
+
+Итог этого сборника: 20 проектов, 178 исходных файлов, 229 исходных коммитов.
+Новые файлы и вся ранее сохранённая история проверяются после публикации отдельным
+свежим клоном: равенство деревьев, побайтовое сравнение файлов и объектов коммитов,
+сохранность тегов, достижимость истории, `git fsck --full`. Только после этой проверки
+исходники удаляются с повторной проверкой их refs и метаданных GitHub.
+
+### Независимая проверка
+
+```sh
+git rev-parse source/theme/master^{tree} main:theme
+git merge-base --is-ancestor f62dac373c8d17efe0b07b04158c2e82d8fa178f main
+git rev-parse source/theme-browser-kolibrios/main^{tree} main:theme-browser-kolibrios
+git merge-base --is-ancestor 4bfd23409b23adc3efb5e13b528df05b4a4f8184 main
+git rev-parse source/zpython/main^{tree} main:zpython
+git merge-base --is-ancestor 55e8ab8ad76dfc0c4cd26bae1cc82e7c26def967 main
+git fsck --full
+```
+
+В каждой паре должны совпасть хеши дерева; ancestry завершается с кодом 0.
