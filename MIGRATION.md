@@ -32,13 +32,13 @@
 После клонирования репозитория выполните:
 
 ```sh
-git rev-parse source/binaryscript/master^{tree} main:binaryscript
+git rev-parse source/binaryscript/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:binaryscript
 git merge-base --is-ancestor 40029e2bfe15feb59d61df51d9d1493ffd8c6a2b main
 git log --format=fuller source/binaryscript/master
-git rev-parse source/pythonjs/master^{tree} main:pythonjs
+git rev-parse source/pythonjs/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:pythonjs
 git merge-base --is-ancestor 113e5a3289ac04c80ed42c961ca0f9c02b9dd424 main
 git log --format=fuller source/pythonjs/master
-git rev-parse source/python-code-display/master^{tree} main:python-code-display
+git rev-parse source/python-code-display/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:python-code-display
 git merge-base --is-ancestor e8bec523bf8d460a99ed11d09692d048fd82e2c1 main
 git log --format=fuller source/python-code-display/master
 git fsck --full
@@ -108,16 +108,16 @@ default branch не обнаружено. Исходные вершины сох
 ### Проверка второй группы
 
 ```sh
-git rev-parse source/brainlet/main^{tree} main:brainlet
+git rev-parse source/brainlet/main^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:brainlet
 git merge-base --is-ancestor 1a77311e5586bbf5f57781375e247c6eda920622 main
 git rev-list --count source/brainlet/main
-git rev-parse source/brainfuck/master^{tree} main:brainfuck
+git rev-parse source/brainfuck/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:brainfuck
 git merge-base --is-ancestor b3f4ceff8876b24ff1caa8223f5301fcc54f8db9 main
 git rev-list --count source/brainfuck/master
-git rev-parse source/lisp/master^{tree} main:lisp
+git rev-parse source/lisp/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:lisp
 git merge-base --is-ancestor 4f8711c650a94127d1b165f2a65724ba41bd78ad main
 git rev-list --count source/lisp/master
-git rev-parse source/lexer/master^{tree} main:lexer
+git rev-parse source/lexer/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:lexer
 git merge-base --is-ancestor 8c48521a499ce9d5f79af91efaf4ccd5faa6aac4 main
 git rev-list --count source/lexer/master
 git fsck --full
@@ -168,25 +168,25 @@ issues/PR (включая закрытые), релизов, wiki, Pages, раз
 ### Проверка новых снимков
 
 ```sh
-git rev-parse source/ascii/master^{tree} main:ascii
+git rev-parse source/ascii/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:ascii
 git merge-base --is-ancestor a2da6d873e8c3977b076cd5f0107f5f56ed5577d main
-git rev-parse source/get-query-selector/master^{tree} main:get-query-selector
+git rev-parse source/get-query-selector/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:get-query-selector
 git merge-base --is-ancestor 93383b60492d582a1b1609e0e6633a9d2ee1b174 main
-git rev-parse source/object-to-xml/master^{tree} main:object-to-xml
+git rev-parse source/object-to-xml/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:object-to-xml
 git merge-base --is-ancestor 16eb4d8b3b22f6ebd58d5e3ec888be4b806a63ff main
-git rev-parse source/blockly-php/main^{tree} main:blockly-php
+git rev-parse source/blockly-php/main^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:blockly-php
 git merge-base --is-ancestor b414b4bc52bfbfbbaeb375dd2cd0b5df13261004 main
-git rev-parse source/html-to-array/main^{tree} main:html-to-array
+git rev-parse source/html-to-array/main^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:html-to-array
 git merge-base --is-ancestor 3de021132bd5571b49ed783520529933daa0dde0 main
-git rev-parse source/php-dom/main^{tree} main:php-dom
+git rev-parse source/php-dom/main^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:php-dom
 git merge-base --is-ancestor 34bc2aee034377ae91624261d1f2bd6c8ad57802 main
-git rev-parse source/gcc-kolibrios/main^{tree} main:gcc-kolibrios
+git rev-parse source/gcc-kolibrios/main^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:gcc-kolibrios
 git merge-base --is-ancestor ebcea99318a58fe86c91cc4a8a6f5a3e0509b41a main
-git rev-parse source/html-application-kolibrios/main^{tree} main:html-application-kolibrios
+git rev-parse source/html-application-kolibrios/main^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:html-application-kolibrios
 git merge-base --is-ancestor d496abe133f9fa9ebdbecf9d1eabcf7b2ba01529 main
-git rev-parse source/console/master^{tree} main:console
+git rev-parse source/console/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:console
 git merge-base --is-ancestor a71eef2a1ec39c0184eeeee7f00a05821a9d6da3 main
-git rev-parse source/class/main^{tree} main:class
+git rev-parse source/class/main^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:class
 git merge-base --is-ancestor a21c25fc2df3c85bed09372b5a7f57ae439105c6 main
 git fsck --full
 ```
@@ -221,13 +221,32 @@ git fsck --full
 ### Независимая проверка
 
 ```sh
-git rev-parse source/theme/master^{tree} main:theme
+git rev-parse source/theme/master^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:theme
 git merge-base --is-ancestor f62dac373c8d17efe0b07b04158c2e82d8fa178f main
-git rev-parse source/theme-browser-kolibrios/main^{tree} main:theme-browser-kolibrios
+git rev-parse source/theme-browser-kolibrios/main^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:theme-browser-kolibrios
 git merge-base --is-ancestor 4bfd23409b23adc3efb5e13b528df05b4a4f8184 main
-git rev-parse source/zpython/main^{tree} main:zpython
+git rev-parse source/zpython/main^{tree} 9a457506c94a4eb6027f3101f0137864484c098f:zpython
 git merge-base --is-ancestor 55e8ab8ad76dfc0c4cd26bae1cc82e7c26def967 main
 git fsck --full
 ```
 
 В каждой паре должны совпасть хеши дерева; ancestry завершается с кодом 0.
+
+## Оформление после переноса
+
+Команды сравнения деревьев выше используют зафиксированную ревизию до оформления
+`9a457506c94a4eb6027f3101f0137864484c098f`, а не изменяемую вершину `main`. Проверки ancestry
+по-прежнему показывают доступность исходных коммитов из `main`.
+
+14 ноября 2026 года улучшены названия и навигация текущей ветки. Исходные SHA,
+авторство, теги `source/*` и коммиты импорта не переписывались.
+
+| Исходный путь в снимке | Текущий путь | Содержание изменения |
+| --- | --- | --- |
+| `zpython/aaa.py` | `zpython/function-annotations-example.py` | Только имя исходного примера; байты сохранены. |
+| `zpython/asd.py` | `zpython/export-ast-json.py` | Новое имя и обновление имени читаемого примера. |
+
+Переработан `zpython/README.md`. Рабочая директория экспортёра остаётся `zpython/`.
+Заявления о побайтовом совпадении выше относятся к проверенным коммитам переноса,
+а не к текущему оформленному дереву. Для исходных файлов используйте тег
+`source/zpython/main`. Текущее дерево намеренно отличается указанными правками.

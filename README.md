@@ -1,4 +1,4 @@
-# code-experiments
+# Code Experiments
 
 Эксперименты с языками программирования, интерпретаторами, лексерами и Python-байткодом.
 Двадцать отдельных проектов собраны в одном репозитории с сохранением исходных файлов и истории.
@@ -54,9 +54,16 @@
 
 ## Лицензии
 
-Условия использования проверяйте для каждого проекта отдельно. Все исходные
-файлы и уведомления сохранены без изменений. В README `blockly-php` заявлена
+Условия использования проверяйте для каждого проекта отдельно. Исходные файлы и уведомления доступны в тегах снимков; изменения текущего
+дерева перечислены в MIGRATION.md. В README `blockly-php` заявлена
 лицензия MIT; это заявление не распространяется на остальные проекты сборника.
 Отдельных файлов лицензий в перенесённых источниках не обнаружено.
 Общая лицензия не добавлялась; перенос не предоставляет новых прав на код
 или включённые бинарники.
+
+## Current tree and source snapshots
+
+Source snapshot tags and original commits remain unchanged. The byte-for-byte
+migration checks in [MIGRATION.md](MIGRATION.md) describe the import revisions.
+Later presentation changes are recorded separately below that report; the current
+tree must not be assumed identical to every archived source tree.
