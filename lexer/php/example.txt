@@ -1,0 +1,25 @@
+﻿12-Test  -= 123asd;//] []
+1/* dgfbr
+ewrthh
+2345
+*/2[sdf]
+alert(Test+123/234); // okey // dfg
+//wert
+work!=0x123;
+	asdf = "12\"3
+sdf"
+<script
+	src="js/exec.
+	js"></script
+		>
+<script src=12></script>
+<script type="HEXScript">FFF</script>
+
+if a==1:
+	pass
+
+функция сложение(а,б):
+	текстНаЭкране(а+б)
+	возвращает а+б
+	
+сложение(1,2)
