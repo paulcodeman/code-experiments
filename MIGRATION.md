@@ -65,9 +65,9 @@ git fsck --full
 
 При первом переносе источники оставлялись без изменений. Позднее BinaryScript, pythonjs
 и python-code-display были удалены по отдельному одобрению владельца; их файлы,
-история и теги сохранены в этом репозитории. Источники второй группы не изменялись и не удалялись.
+история и теги сохранены в этом репозитории. Источники второй группы также были удалены после проверки переноса по разрешению владельца.
 Issues, pull requests, releases, stars, настройки и прочие метаданные GitHub не переносились.
-Tagix, TagixTech, приватные репозитории и любые другие источники не затрагивались.
+Защищённые проекты не изменялись. В этот публичный сборник импортировались только публичные источники.
 
 ## Вторая группа: Brainlet, brainfuck, lisp, Lexer
 
@@ -127,3 +127,68 @@ git fsck --full
 числа коммитов должны совпасть с таблицей. Повторная проверка публикации выполняется
 в отдельном свежем клоне с GitHub с побайтовым сравнением всех 48 исходных файлов,
 объектов 85 исходных коммитов и сохранённых тегов.
+
+## Последующее объединение небольших решений
+
+Дата снимка: 14 ноября 2026 года. Перед импортом проверены видимость, все ветки и теги источников,
+состояние назначения и отсутствие локальных изменений. Публикация выполняется без force push.
+
+| Источник | Каталог | Ветка | Исходная вершина | Коммитов | Файлов |
+| --- | --- | --- | --- | ---: | ---: |
+| [ascii](https://github.com/paulcodeman/ascii) | `ascii/` | `master` | `a2da6d873e8c3977b076cd5f0107f5f56ed5577d` | 4 | 2 |
+| [getQuerySelector](https://github.com/paulcodeman/getQuerySelector) | `get-query-selector/` | `master` | `93383b60492d582a1b1609e0e6633a9d2ee1b174` | 1 | 1 |
+| [objectToXML](https://github.com/paulcodeman/objectToXML) | `object-to-xml/` | `master` | `16eb4d8b3b22f6ebd58d5e3ec888be4b806a63ff` | 3 | 2 |
+| [blockly-php](https://github.com/paulcodeman/blockly-php) | `blockly-php/` | `main` | `b414b4bc52bfbfbbaeb375dd2cd0b5df13261004` | 5 | 2 |
+| [php](https://github.com/paulcodeman/php) | `html-to-array/` | `main` | `3de021132bd5571b49ed783520529933daa0dde0` | 6 | 2 |
+| [php-dom](https://github.com/paulcodeman/php-dom) | `php-dom/` | `main` | `34bc2aee034377ae91624261d1f2bd6c8ad57802` | 4 | 3 |
+| [gcc](https://github.com/paulcodeman/gcc) | `gcc-kolibrios/` | `main` | `ebcea99318a58fe86c91cc4a8a6f5a3e0509b41a` | 2 | 6 |
+| [html-application-kolibrios](https://github.com/paulcodeman/html-application-kolibrios) | `html-application-kolibrios/` | `main` | `d496abe133f9fa9ebdbecf9d1eabcf7b2ba01529` | 2 | 2 |
+| [console](https://github.com/paulcodeman/console) | `console/` | `master` | `a71eef2a1ec39c0184eeeee7f00a05821a9d6da3` | 99 | 4 |
+| [class](https://github.com/paulcodeman/class) | `class/` | `main` | `a21c25fc2df3c85bed09372b5a7f57ae439105c6` | 11 | 8 |
+
+У каждого нового источника одна указанная ветка; тегов и дополнительной истории вне неё нет.
+Каждая исходная ветка сохранена тегом `source/<каталог>/<ветка>`. Исходные коммиты
+включены без squash или переписывания: SHA, авторы, коммитеры, даты, сообщения, родители
+и деревья совпадают побайтово. Исторические пути не переписывались.
+
+В этой группе сохранено 32 файлов и 137 исходных коммитов.
+Итого в сборнике 17 проектов, 80 исходных файлов и 222 исходных коммитов.
+Проверка после публикации выполняется свежим клонированием: побайтовое совпадение всех
+файлов, равенство деревьев (пути, режимы, blob SHA), сырых объектов всех исходных коммитов,
+достижимости из сохранённых refs, прежних и новых тегов; `git fsck --full` и чистота checkout.
+
+Перед удалением каждого источника повторно проверяются его видимость, ветки/теги и отсутствие
+issues/PR (включая закрытые), релизов, wiki, Pages, развёртываний, окружений, артефактов
+и включённых Discussions, требующих отдельного сохранения. У новых источников таких данных
+не обнаружено. Исходники удаляются только после проверки опубликованной копии.
+
+Код, бинарники и сетевые интеграции не запускались. Ограничения перечислены в README.
+Исходные уведомления и README сохранены; общая лицензия не вводилась.
+
+### Проверка новых снимков
+
+```sh
+git rev-parse source/ascii/master^{tree} main:ascii
+git merge-base --is-ancestor a2da6d873e8c3977b076cd5f0107f5f56ed5577d main
+git rev-parse source/get-query-selector/master^{tree} main:get-query-selector
+git merge-base --is-ancestor 93383b60492d582a1b1609e0e6633a9d2ee1b174 main
+git rev-parse source/object-to-xml/master^{tree} main:object-to-xml
+git merge-base --is-ancestor 16eb4d8b3b22f6ebd58d5e3ec888be4b806a63ff main
+git rev-parse source/blockly-php/main^{tree} main:blockly-php
+git merge-base --is-ancestor b414b4bc52bfbfbbaeb375dd2cd0b5df13261004 main
+git rev-parse source/html-to-array/main^{tree} main:html-to-array
+git merge-base --is-ancestor 3de021132bd5571b49ed783520529933daa0dde0 main
+git rev-parse source/php-dom/main^{tree} main:php-dom
+git merge-base --is-ancestor 34bc2aee034377ae91624261d1f2bd6c8ad57802 main
+git rev-parse source/gcc-kolibrios/main^{tree} main:gcc-kolibrios
+git merge-base --is-ancestor ebcea99318a58fe86c91cc4a8a6f5a3e0509b41a main
+git rev-parse source/html-application-kolibrios/main^{tree} main:html-application-kolibrios
+git merge-base --is-ancestor d496abe133f9fa9ebdbecf9d1eabcf7b2ba01529 main
+git rev-parse source/console/master^{tree} main:console
+git merge-base --is-ancestor a71eef2a1ec39c0184eeeee7f00a05821a9d6da3 main
+git rev-parse source/class/main^{tree} main:class
+git merge-base --is-ancestor a21c25fc2df3c85bed09372b5a7f57ae439105c6 main
+git fsck --full
+```
+
+В каждой паре должны совпасть хеши дерева; проверка ancestry завершается с кодом 0.
